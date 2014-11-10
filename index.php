@@ -42,9 +42,11 @@
             if($route == "busca") {
                 $sql = "SELECT * FROM conteudo WHERE description LIKE :word";
                 $stmt = $pdo->prepare($sql);
-                $stmt->bindValue(":word", $_GET['searchinput']);
+                $stmt->bindValue(":word", '"%' . $_GET['searchinput'] . '%"');
                 $stmt->execute();
                 $result = $stmt->fetchAll(PDO::FETCH_OBJ);
+                echo "SELECT * FROM conteudo WHERE description LIKE {$_GET['searchinput']}";
+                var_dump($result);
             }
 
             if (!$route) {
