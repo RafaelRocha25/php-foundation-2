@@ -22,36 +22,46 @@
 
         $pdo = conect();
 
-        $sql = "SELECT * FROM conteudo WHERE link = :page";
-        $stmt = $pdo->prepare($sql);
-
-        # define as rotas, a padrão é quando não existe a variável $route está vazia
         $routes = [
             ""         => "/home",
             "home"     => "/home",
             "empresa"  => "/empresa",
             "servicos" => "/servicos",
             "produtos" => "/produtos",
-            "contato"  => "/contato"
+            "contato"  => "/contato",
+            "busca"    => "/busca"
         ];
 
-        # verifica se a rota passada via url está mapeada no esquema de rotas
+
         if(array_key_exists($route, $routes)) {
 
             if($route == "contato") {
                 include "paginas/contato.php";
             }
 
+            if($route == "busca") {
+                $sql = "SELECT * FROM conteudo WHERE description LIKE :word";
+                $stmt = $pdo->prepare($sql);
+                $stmt->bindValue(":word", $_GET['searchinput']);
+                $stmt->execute();
+                $result = $stmt->fetchAll(PDO::FETCH_OBJ);
+            }
+
             if (!$route) {
+                $sql = "SELECT * FROM conteudo WHERE link = :page";
+                $stmt = $pdo->prepare($sql);
                 $stmt->bindValue(":page", "home");
+                $stmt->execute();
+                $result = $stmt->fetch(PDO::FETCH_OBJ);
             }
 
             if ($route) {
+                $sql = "SELECT * FROM conteudo WHERE link = :page";
+                $stmt = $pdo->prepare($sql);
                 $stmt->bindValue(":page", $route);
+                $stmt->execute();
+                $result = $stmt->fetch(PDO::FETCH_OBJ);
             }
-
-            $stmt->execute();
-            $result = $stmt->fetch(PDO::FETCH_OBJ);
 
             return $result;
         }
@@ -74,7 +84,7 @@
     <meta name="description" content="">
     <meta name="author" content="rafael" >
 
-    <title>Primeiro Projeto - PHP Foundation</title>
+    <title>Segundo Projeto - PHP Foundation</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo PATH ?>/css/bootstrap.min.css" rel="stylesheet" />
@@ -136,6 +146,27 @@
     <!-- Page Content -->
     <div class="container">
         <div class="row">
+            <div class="col-lg-6 col-lg-offset-9">
+                <form class="form-horizontal" action="/busca" method="GET">
+                    <fieldset>
+                        <!-- Search input-->
+                        <div class="form-group">
+                            <div class="col-md-4">
+                                <input id="searchinput" name="searchinput" type="search" placeholder="busca" class="form-control input-md" required="">
+
+                            </div>
+
+                            <div class="col-md-4">
+                                <button id="singlebutton" class="btn btn-primary">Buscar</button>
+                            </div>
+                        </div>
+
+                    </fieldset>
+                </form>
+
+            </div>
+        </div>
+        <div class="row">
             <div class="col-lg-12">
                 <?php
 
@@ -143,6 +174,10 @@
 
                     if($content && $route['path'] != "contato") {
                         echo utf8_encode($content->description);
+                    }
+
+                    if($content && $route['path'] == "busca") {
+                        var_dump($content);
                     }
 
                     if(!$content && $route['path'] != "contato") {

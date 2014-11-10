@@ -2,12 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7a9b1092-0d2b-4a08-8b46-39318561fb9d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/php-foundation-projeto-2.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
     </list>
     <ignored path="php-foundation-projeto-2.iws" />
@@ -36,14 +30,17 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.864783" vertical-offset="2154" max-vertical-offset="3145">
-              <caret line="18" column="32" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
+            <state vertical-scroll-proportion="2.6125126" vertical-offset="437" max-vertical-offset="3740">
+              <caret line="178" column="31" selection-start-line="178" selection-start-column="23" selection-end-line="178" selection-end-column="31" />
               <folding>
-                <marker date="1415653898603" expanded="true" signature="560:601" placeholder="SELECT * FRO..conteudo..." />
-                <marker date="1415653898603" expanded="true" signature="4903:5200" placeholder="..." />
-                <marker date="1415653898603" expanded="true" signature="4935:5200" placeholder="..." />
-                <marker date="1415653898603" expanded="true" signature="5102:5200" placeholder="..." />
-                <marker date="1415653898603" expanded="true" signature="5149:5200" placeholder="..." />
+                <marker date="1415658520852" expanded="true" signature="1045:1096" placeholder="SELECT * FRO..conteudo..." />
+                <marker date="1415658520852" expanded="true" signature="1368:1409" placeholder="SELECT * FRO..conteudo..." />
+                <marker date="1415658520852" expanded="true" signature="1663:1704" placeholder="SELECT * FRO..conteudo..." />
+                <marker date="1415658520852" expanded="true" signature="2020:2040" placeholder="..." />
+                <marker date="1415658520852" expanded="true" signature="6289:6586" placeholder="..." />
+                <marker date="1415658520852" expanded="true" signature="6321:6586" placeholder="..." />
+                <marker date="1415658520852" expanded="true" signature="6488:6586" placeholder="..." />
+                <marker date="1415658520852" expanded="true" signature="6535:6586" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -210,14 +207,17 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.864783" vertical-offset="2154" max-vertical-offset="3145">
-          <caret line="18" column="32" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
+        <state vertical-scroll-proportion="2.6125126" vertical-offset="437" max-vertical-offset="3740">
+          <caret line="178" column="31" selection-start-line="178" selection-start-column="23" selection-end-line="178" selection-end-column="31" />
           <folding>
-            <marker date="1415653898603" expanded="true" signature="560:601" placeholder="SELECT * FRO..conteudo..." />
-            <marker date="1415653898603" expanded="true" signature="4903:5200" placeholder="..." />
-            <marker date="1415653898603" expanded="true" signature="4935:5200" placeholder="..." />
-            <marker date="1415653898603" expanded="true" signature="5102:5200" placeholder="..." />
-            <marker date="1415653898603" expanded="true" signature="5149:5200" placeholder="..." />
+            <marker date="1415658520852" expanded="true" signature="1045:1096" placeholder="SELECT * FRO..conteudo..." />
+            <marker date="1415658520852" expanded="true" signature="1368:1409" placeholder="SELECT * FRO..conteudo..." />
+            <marker date="1415658520852" expanded="true" signature="1663:1704" placeholder="SELECT * FRO..conteudo..." />
+            <marker date="1415658520852" expanded="true" signature="2020:2040" placeholder="..." />
+            <marker date="1415658520852" expanded="true" signature="6289:6586" placeholder="..." />
+            <marker date="1415658520852" expanded="true" signature="6321:6586" placeholder="..." />
+            <marker date="1415658520852" expanded="true" signature="6488:6586" placeholder="..." />
+            <marker date="1415658520852" expanded="true" signature="6535:6586" placeholder="..." />
           </folding>
         </state>
       </provider>
