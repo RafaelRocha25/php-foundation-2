@@ -1,54 +1,70 @@
-<?php
+﻿<?php
 	
 	define("PATH", "http://".$_SERVER['HTTP_HOST']);
 	define("DEFAULT_PATH", "paginas");		
-	$rota = parse_url(PATH.$_SERVER['REQUEST_URI']);	
+	$route = parse_url(PATH.$_SERVER['REQUEST_URI']);
 
-	function retornaArquivo($url) {
-			$inverte  = strrev($url);
-			$barraPos = strpos($inverte, "/");
-			return strrev(substr($inverte, 0, $barraPos));
-	}
+	$route['path'] = str_replace("/", "", $route['path']);
 
-	function rota($file, $rota) {	
-		
-		if(substr_count($rota['path'], "/") > 1) {
-			$path    = str_replace(retornaArquivo($rota['path']), "", $rota['path']);		
-			$arquivo = DEFAULT_PATH . $path . $file . ".php";
-		} else {
-			$arquivo = DEFAULT_PATH . "/" . $file . ".php";
-		}
-		
-		# índice de rotas
-		$rotas = [	"home"      => "paginas/home.php", 
-						"empresa"   => "paginas/empresa.php", 
-						"produtos"  => "paginas/produtos.php", 
-						"servicos"  => "paginas/servicos.php",
-						"contato"   => "paginas/contato.php", 
-						"produto-1" => "paginas/produtos/produto-1.php"
-					];
-					
-		$rotaPadrao = ["padrao" => "paginas/home.php"];
+    function conect() {
+        try {
+            return new PDO("mysql:host=localhost;dbname=pdo", "root", "");
+        } catch(PDOException $e) {
+            echo $e->getMessage() . "<br /> Code: " . $e->getCode();
+        }
+    }
 
-				
-		if(!$file) {
-			require_once($rotaPadrao["padrao"]);
-			return;
-		}		
-	   
-	   		
-		if(file_exists($arquivo) && array_key_exists($file, $rotas)) {			
-			require($rotas[$file]);
-		} else {
-			echo "Página não encontrada. Erro: 404.";		
-		}
-	}	
-	
+
+
+    function chosePage($route) {
+
+        //exec("SET CHARACTER SET utf8");
+
+        $pdo = conect();
+
+        $sql = "SELECT * FROM conteudo WHERE link = :page";
+        $stmt = $pdo->prepare($sql);
+
+        # define as rotas, a padrão é quando não existe a variável $route está vazia
+        $routes = [
+            ""         => "/home",
+            "home"     => "/home",
+            "empresa"  => "/empresa",
+            "servicos" => "/servicos",
+            "produtos" => "/produtos",
+            "contato"  => "/contato"
+        ];
+
+        # verifica se a rota passada via url está mapeada no esquema de rotas
+        if(array_key_exists($route, $routes)) {
+
+            if($route == "contato") {
+                include "paginas/contato.php";
+            }
+
+            if (!$route) {
+                $stmt->bindValue(":page", "home");
+            }
+
+            if ($route) {
+                $stmt->bindValue(":page", $route);
+            }
+
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_OBJ);
+
+            return $result;
+        }
+
+        return null;
+
+    }
+
 ?>
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 
 <head>
 
@@ -108,9 +124,6 @@
                         <a href="<?php echo PATH ?>/produtos">Produtos</a>
                     </li>
                     <li>
-                        <a href="<?php echo PATH ?>/produtos/produto-1">Produto - 1</a>
-                    </li>
-                    <li>
                         <a href="<?php echo PATH ?>/contato">Contato</a>
                     </li>
                 </ul>
@@ -124,10 +137,18 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <?php 
-                		
-						$file = retornaArquivo($rota['path']);	
-						rota($file, $rota);	
+                <?php
+
+                    $content = chosePage($route['path']);
+
+                    if($content && $route['path'] != "contato") {
+                        echo utf8_encode($content->description);
+                    }
+
+                    if(!$content && $route['path'] != "contato") {
+                        echo "Página não encontrada! 404.";
+                    }
+
                 ?>
             </div>
         </div>
