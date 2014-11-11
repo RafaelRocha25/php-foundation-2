@@ -1,16 +1,76 @@
 ﻿<?php
-
-	session_start();
-
+	
 	define("PATH", "http://".$_SERVER['HTTP_HOST']);
 	define("DEFAULT_PATH", "paginas");		
 	$route = parse_url(PATH.$_SERVER['REQUEST_URI']);
 
 	$route['path'] = str_replace("/", "", $route['path']);
 
-    include "Controller.php";
-    $controller = new Controller();
-    $checaSeRotaEstaMapeada  = $controller->checaRota($route['path']);
+    function conect() {
+        try {
+            return new PDO("mysql:host=localhost;dbname=pdo", "root", "asus2011");
+        } catch(PDOException $e) {
+            echo $e->getMessage() . "<br /> Code: " . $e->getCode();
+        }
+    }
+
+
+
+    function chosePage($route) {
+
+        //exec("SET CHARACTER SET utf8");
+
+        $pdo = conect();
+
+        $routes = [
+            ""         => "/home",
+            "home"     => "/home",
+            "empresa"  => "/empresa",
+            "servicos" => "/servicos",
+            "produtos" => "/produtos",
+            "contato"  => "/contato",
+            "busca"    => "/busca"
+        ];
+
+
+        if(array_key_exists($route, $routes)) {
+
+            if($route == "contato") {
+                include "paginas/contato.php";
+            }
+
+            if($route == "busca") {
+                $sql = "SELECT * FROM conteudo WHERE description LIKE :word";
+                $stmt = $pdo->prepare($sql);
+                $keyword = "%".$_GET['searchinput']."%";
+                $stmt->bindValue(':word', $keyword, PDO::PARAM_STR);
+                $stmt->execute();
+                $result = $stmt->fetchAll(PDO::FETCH_OBJ);
+                var_dump($result);
+            }
+
+            if (!$route) {
+                $sql = "SELECT * FROM conteudo WHERE link = :page";
+                $stmt = $pdo->prepare($sql);
+                $stmt->bindValue(":page", "home");
+                $stmt->execute();
+                $result = $stmt->fetch(PDO::FETCH_OBJ);
+            }
+
+            if ($route) {
+                $sql = "SELECT * FROM conteudo WHERE link = :page";
+                $stmt = $pdo->prepare($sql);
+                $stmt->bindValue(":page", $route);
+                $stmt->execute();
+                $result = $stmt->fetch(PDO::FETCH_OBJ);
+            }
+
+            return $result;
+        }
+
+        return null;
+
+    }
 
 ?>
 
@@ -94,7 +154,7 @@
                         <!-- Search input-->
                         <div class="form-group">
                             <div class="col-md-4">
-                                <input id="searchinput" name="busca" type="search" placeholder="busca" class="form-control input-md" required="">
+                                <input id="searchinput" name="searchinput" type="search" placeholder="busca" class="form-control input-md" required="">
 
                             </div>
 
@@ -112,14 +172,18 @@
             <div class="col-lg-12">
                 <?php
 
-                    $retornoRota = $checaSeRotaEstaMapeada;
+                    $content = chosePage($route['path']);
 
-                    if($retornoRota) {
-                        $controller->escolhePagina($retornoRota);
+                    if($content && $route['path'] != "contato") {
+                        echo utf8_encode($content->description);
                     }
 
-                    if(!$retornoRota) {
-                        echo "Página não encontrada! 404!";
+                    if($content && $route['path'] == "busca") {
+                        var_dump($content);
+                    }
+
+                    if(!$content && $route['path'] != "contato") {
+                        echo "Página não encontrada! 404.";
                     }
 
                 ?>
