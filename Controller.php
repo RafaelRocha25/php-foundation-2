@@ -32,7 +32,8 @@ class Controller {
     }
 
     public function escolhePagina($rota) {
-        $pdo = new Db("localhost", "pdo", "root", "asus2011");
+
+        $pdo = new Db("localhost", "pdo", "user", "asus.pass");
 
         $pagina = new Pagina($pdo);
 

@@ -18,8 +18,7 @@ class Pagina {
 
 
     public function home($rota) {
-        $db  = $this->getPdo();
-        $pdo = $db->conectar();
+        $pdo  = $this->getPdo()->conectar();
 
         $sql  = "SELECT * FROM conteudo WHERE link = :rota";
         $stmt = $pdo->prepare($sql);
@@ -32,8 +31,7 @@ class Pagina {
     }
 
     public function servicos($rota) {
-        $db  = $this->getPdo();
-        $pdo = $db->conectar();
+        $pdo = $this->getPdo()->conectar();
 
         $sql  = "SELECT * FROM conteudo WHERE link = :rota";
         $stmt = $pdo->prepare($sql);
@@ -46,8 +44,7 @@ class Pagina {
     }
 
     public function empresa($rota) {
-        $db  = $this->getPdo();
-        $pdo = $db->conectar();
+        $pdo = $this->getPdo()->conectar();
 
         $sql  = "SELECT * FROM conteudo WHERE link = :rota";
         $stmt = $pdo->prepare($sql);
@@ -64,16 +61,15 @@ class Pagina {
     }
 
     public function busca($param) {
-        $db  = $this->getPdo();
-        $pdo = $db->conectar();
+        $pdo = $this->getPdo()->conectar();
 
-        $sql = "SELECT * FROM conteudo WHERE description LIKE ':busca' ";
+        $sql = "SELECT * FROM conteudo WHERE description LIKE '%:tag%'; ";
         $stmt = $pdo->prepare($sql);
-        $stmt->bindValue(":busca", "%".$param."%");
+        $stmt->bindValue(':tag',  $param);
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_OBJ);
 
-var_dump($stmt);
+        var_dump($result);
         $_SESSION["conteudo"] = $result;
         include "paginas/busca.php";
     }
