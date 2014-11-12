@@ -6,8 +6,9 @@
  * Time: 22:38
  */
 
-include "Pagina.php";
+include_once "Pagina.php";
 include_once "Db.php";
+include_once "Config.php";
 
 class Controller {
 
@@ -31,9 +32,13 @@ class Controller {
 
     }
 
-    public function escolhePagina($rota) {
+    public function escolhePagina($rota, $config) {
 
-        $pdo = new Db("localhost", "pdo", "user", "asus.pass");
+        //$pdo = new Db("localhost", "pdo", "user", "asus.pass");
+        $config = new Config();
+        $dados = $config->parametrosParaConexaoComMysql();
+
+        $pdo = new Db($dados["host"], $dados["dbname"], $dados["user"], $dados["password"]);
 
         $pagina = new Pagina($pdo);
 

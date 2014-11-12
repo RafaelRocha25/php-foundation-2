@@ -1,8 +1,12 @@
 <?php
 
 include "Db.php";
+include "Config.php";
 
-$db = new Db("localhost", "pdo", "user", "asus.pass");
+$config = new Config();
+$dados = $config->parametrosParaConexaoComMysql();
+
+$db = new Db($dados["host"], $dados["dbname"], $dados["user"], $dados["password"]);
 $pdo = $db->conectar();
 
 echo "#### EXECUTANDO FIXTURE ####\n";
