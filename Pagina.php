@@ -56,6 +56,19 @@ class Pagina {
         include "paginas/empresa.php";
     }
 
+    public function produtos($rota) {
+        $pdo = $this->getPdo()->conectar();
+
+        $sql  = "SELECT * FROM conteudo WHERE link = :rota";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(":rota", $rota);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_OBJ);
+
+        $_SESSION["conteudo"] = utf8_encode($result->description);
+        include "paginas/produtos.php";
+    }
+
     public function contato() {
         include "paginas/contato.php";
     }
@@ -63,13 +76,14 @@ class Pagina {
     public function busca($param) {
         $pdo = $this->getPdo()->conectar();
 
-        $sql = "SELECT * FROM conteudo WHERE description LIKE '%:tag%'; ";
+        $like = "%".$param."%";
+
+        $sql = "SELECT * FROM conteudo WHERE description LIKE ?;";
         $stmt = $pdo->prepare($sql);
-        $stmt->bindValue(':tag',  $param);
+        $stmt->bindValue(1,  $like);
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_OBJ);
 
-        var_dump($result);
         $_SESSION["conteudo"] = $result;
         include "paginas/busca.php";
     }

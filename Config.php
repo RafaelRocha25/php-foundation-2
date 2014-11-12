@@ -6,8 +6,8 @@ Class Config
     {
         $config = [
             "host" => "localhost",
-            "user" => "user",
-            "password" => "asus.pass",
+            "user" => "root",
+            "password" => "",
             "dbname" => "pdo"];
 
         return $config;

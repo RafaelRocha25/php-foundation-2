@@ -17,13 +17,15 @@ class Controller {
      **/
     public function checaRota($rota) {
 
+        $rota = ($rota == "") ? "home" : $rota;
+
         $rotas = [
-            ""         => "/home",
             "home"     => "/home",
             "empresa"  => "/empresa",
             "servicos" => "/servicos",
             "contato"  => "/contato",
-            "busca"    => "/busca"
+            "busca"    => "/busca",
+            "produtos" => "/produtos"
         ];
 
         if(array_key_exists($rota, $rotas))
@@ -32,9 +34,23 @@ class Controller {
 
     }
 
-    public function escolhePagina($rota, $config) {
+    public function geraItensDeMenu(){
+        $config = new Config();
+        $dados = $config->parametrosParaConexaoComMysql();
 
-        //$pdo = new Db("localhost", "pdo", "user", "asus.pass");
+        $db = new Db($dados["host"], $dados["dbname"], $dados["user"], $dados["password"]);
+        $pdo = $db->conectar();
+
+        $sql  = "SELECT link FROM conteudo";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+        return $result;
+    }
+
+    public function escolhePagina($rota) {
+
         $config = new Config();
         $dados = $config->parametrosParaConexaoComMysql();
 
@@ -57,6 +73,9 @@ class Controller {
                 break;
             case "contato";
                 $pagina->contato();
+                break;
+            case "produtos":
+                $pagina->produtos($rota);
                 break;
             default:
                 $pagina->home($rota);

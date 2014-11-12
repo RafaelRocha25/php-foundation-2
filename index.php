@@ -1,6 +1,10 @@
 ﻿<?php
 
-	session_start();
+
+ini_set('display_errors', true);
+error_reporting(E_ALL | E_STRICT);
+
+
 
 	define("PATH", "http://".$_SERVER['HTTP_HOST']);
 	define("DEFAULT_PATH", "paginas");		
@@ -11,6 +15,7 @@
     include "Controller.php";
     $controller = new Controller();
     $checaSeRotaEstaMapeada  = $controller->checaRota($route['path']);
+    $itens = $controller->geraItensDeMenu();
 
 ?>
 
@@ -63,18 +68,17 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li>
-                        <a href="<?php echo PATH ?>/home">Home</a>
-                    </li>
-                    <li>
-                        <a href="<?php echo PATH ?>/empresa">Empresa</a>
-                    </li>
-		    				<li>
-                        <a href="<?php echo PATH ?>/servicos">Serviços</a>
-                    </li>
-		    			  <li>
-                        <a href="<?php echo PATH ?>/produtos">Produtos</a>
-                    </li>
+
+                    <?php
+                        foreach($itens as $item) {
+                            echo "
+                                <li>
+                                    <a href='".PATH."/".$item->link."'>".$item->link."</a>
+                                </li>
+                            ";
+                        }
+                    ?>
+
                     <li>
                         <a href="<?php echo PATH ?>/contato">Contato</a>
                     </li>
