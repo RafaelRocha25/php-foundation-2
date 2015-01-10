@@ -13,7 +13,7 @@ class Pagina {
 
     public function __construct(Db $pdo){
         $this->setPdo($pdo);
-        unset($_SESSION["conteudo"]);
+        unset($_SESSION["conteudo"], $_SESSION["msg"]);
     }
 
 
@@ -28,6 +28,77 @@ class Pagina {
 
         $_SESSION["conteudo"] = utf8_encode($result->description);
         include "paginas/home.php";
+    }
+
+    public function login($rota) {
+        include "paginas/login.php";
+    }
+
+    public function valida_login($rota) {
+        unset($_SESSION["msg"]);
+        $pdo  = $this->getPdo()->conectar();
+
+        $sql  = "SELECT * FROM usuarios WHERE user = :user";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(":user", $_POST['username']);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_OBJ);
+
+        if(isset($result->user) && (password_verify($_POST['password'], $result->password))){
+            $_SESSION['logado'] = TRUE;
+            $this->admin('admin');
+        } else {
+            $_SESSION['msg'] = "Login ou senha inválido!";
+            $this->login('login');
+        }
+    }
+
+    public function sair() {
+        unset($_SESSION['logado']);
+        $this->login("login");
+    }
+
+    public function admin($rota) {
+        if(isset($_SESSION['logado'])) {
+            $pdo = $this->getPdo()->conectar();
+
+            $sql = "SELECT * FROM conteudo";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute();
+            while($result = $stmt->fetch(PDO::FETCH_OBJ)){
+                $data[] = $result;
+            }
+
+
+
+            $_SESSION["conteudo"] = "Administração!";
+            $_SESSION["data"] = $data;
+            include "paginas/admin.php";
+        } else {
+            $this->login('login');
+        }
+    }
+
+    public function salvar($data) {
+        if(isset($_SESSION['logado'])) {
+            try {
+                $pdo = $this->getPdo()->conectar();
+                $sql = "UPDATE conteudo SET description = :descricao WHERE link = :link";
+                $stmt = $pdo->prepare($sql);
+                $stmt->bindParam(":descricao", $data['descricao'], PDO::PARAM_STR);
+                $stmt->bindParam(":link", $data['link'], PDO::PARAM_STR);
+                $stmt->execute();
+
+                echo "Conteúdo salvo com sucesso!<br />";
+                echo "<a href='admin'>voltar</a>";
+
+            } catch (PDOException $e) {
+                echo 'Error: ' . $e->getMessage();
+            }
+        } else {
+            $this->login('login');
+        }
+
     }
 
     public function servicos($rota) {

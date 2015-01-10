@@ -1,10 +1,7 @@
 ﻿<?php
 
-
-ini_set('display_errors', true);
-error_reporting(E_ALL | E_STRICT);
-
-
+    ini_set('display_errors', true);
+    error_reporting(E_ALL | E_STRICT);
 
 	define("PATH", "http://".$_SERVER['HTTP_HOST']);
 	define("DEFAULT_PATH", "paginas");		
@@ -82,6 +79,14 @@ error_reporting(E_ALL | E_STRICT);
                     <li>
                         <a href="<?php echo PATH ?>/contato">Contato</a>
                     </li>
+                    <?php if(!isset($_SESSION['logado'])) : ?>
+                        <li>
+                            <a href="<?php echo PATH ?>/login">Login</a>
+                        </li>
+                    <?php endif; ?>
+                    <li>
+                        <a href="<?php echo PATH ?>/admin">Admin</a>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -146,10 +151,18 @@ error_reporting(E_ALL | E_STRICT);
     </nav>
 
     <!-- jQuery Version 1.11.0 -->
-    <script src="<?php echo PATH ?>js/jquery-1.11.0.js"></script>
+    <script src="<?php echo PATH ?>/js/jquery-1.11.0.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="<?php echo PATH ?>js/bootstrap.min.js"></script>
+    <script src="<?php echo PATH ?>/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+        $('#botao').click(function(){
+            var title = $('#botao').attr('title');
+            $('#myModalLabel').empty();
+            $('#myModalLabel').append(title);
+        });
+    </script>
 
 </body>
 

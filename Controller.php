@@ -25,7 +25,12 @@ class Controller {
             "servicos" => "/servicos",
             "contato"  => "/contato",
             "busca"    => "/busca",
-            "produtos" => "/produtos"
+            "produtos" => "/produtos",
+            "admin"    => "/admin",
+            "login"    => "/login",
+            "valida-login" => "/valida-login",
+            "sair"     => "/sair",
+            "salvar"   => "/salvar"
         ];
 
         if(array_key_exists($rota, $rotas))
@@ -76,6 +81,21 @@ class Controller {
                 break;
             case "produtos":
                 $pagina->produtos($rota);
+                break;
+            case "admin":
+                $pagina->admin($rota);
+                break;
+            case "login":
+                $pagina->login($rota);
+                break;
+            case "sair":
+                $pagina->sair();
+                break;
+            case "valida-login":
+                $pagina->valida_login($rota);
+                break;
+            case "salvar":
+                $pagina->salvar($_POST);
                 break;
             default:
                 $pagina->home($rota);
