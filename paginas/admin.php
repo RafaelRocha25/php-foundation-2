@@ -2,6 +2,12 @@
 <?php echo $_SESSION["conteudo"]; ?> |
 <a href="<?php echo PATH . "/sair"; ?>">sair</a>
 
+<?php
+    if(isset($_SESSION['mensagem'])) {
+        echo '<div class="alert alert-success" role="alert">'.$_SESSION['mensagem'].'</div>';
+    }
+?>
+
 <ul>
     <?php
         foreach($_SESSION['data'] as $data) {

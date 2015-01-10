@@ -70,7 +70,7 @@ class Pagina {
             }
 
 
-
+            unset($_SESSION['mensagem']);
             $_SESSION["conteudo"] = "Administração!";
             $_SESSION["data"] = $data;
             include "paginas/admin.php";
@@ -89,8 +89,9 @@ class Pagina {
                 $stmt->bindParam(":link", $data['link'], PDO::PARAM_STR);
                 $stmt->execute();
 
-                echo "Conteúdo salvo com sucesso!<br />";
-                echo "<a href='admin'>voltar</a>";
+                $_SESSION["conteudo"] = "Administração!";
+                $_SESSION["mensagem"] = "Conteúdo salvo com sucesso!<br />";
+                include "paginas/admin.php";
 
             } catch (PDOException $e) {
                 echo 'Error: ' . $e->getMessage();

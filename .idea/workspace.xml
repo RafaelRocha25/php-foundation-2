@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7a9b1092-0d2b-4a08-8b46-39318561fb9d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/paginas/admin.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/paginas/login.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Config.php" afterPath="$PROJECT_DIR$/Config.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Controller.php" afterPath="$PROJECT_DIR$/Controller.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pagina.php" afterPath="$PROJECT_DIR$/Pagina.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fixture.php" afterPath="$PROJECT_DIR$/fixture.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/paginas/admin.php" afterPath="$PROJECT_DIR$/paginas/admin.php" />
     </list>
     <ignored path="php-foundation-projeto-2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,9 +31,17 @@
       <file leaf-file-name="admin.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/paginas/admin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-23.291666" vertical-offset="11" max-vertical-offset="660">
-              <caret line="38" column="6" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
-              <folding />
+            <state vertical-scroll-proportion="-3.75" vertical-offset="0" max-vertical-offset="750">
+              <caret line="6" column="62" selection-start-line="6" selection-start-column="62" selection-end-line="6" selection-end-column="62" />
+              <folding>
+                <marker date="1420862725775" expanded="true" signature="256:293" placeholder="..." />
+                <marker date="1420862725775" expanded="true" signature="449:854" placeholder="..." />
+                <marker date="1420862725775" expanded="true" signature="476:854" placeholder="..." />
+                <marker date="1420862725775" expanded="true" signature="559:854" placeholder="..." />
+                <marker date="1420862725775" expanded="true" signature="702:854" placeholder="..." />
+                <marker date="1420862725775" expanded="true" signature="1011:1302" placeholder="..." />
+                <marker date="1420862725775" expanded="true" signature="1142:1275" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -56,20 +58,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Pagina.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Pagina.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Pagina.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.57641196" vertical-offset="1033" max-vertical-offset="2775">
-              <caret line="92" column="36" selection-start-line="92" selection-start-column="36" selection-end-line="92" selection-end-column="36" />
+            <state vertical-scroll-proportion="-10.083333" vertical-offset="838" max-vertical-offset="2790">
+              <caret line="72" column="41" selection-start-line="72" selection-start-column="41" selection-end-line="72" selection-end-column="41" />
               <folding>
-                <marker date="1420862356771" expanded="true" signature="372:413" placeholder="SELECT * FRO..conteudo..." />
-                <marker date="1420862356771" expanded="true" signature="897:938" placeholder="SELECT * FRO..usuarios..." />
-                <marker date="1420862356771" expanded="true" signature="1653:1675" placeholder="SELECT * FRO..conteudo..." />
-                <marker date="1420862356771" expanded="true" signature="2234:2297" placeholder="UPDATE conte..." />
-                <marker date="1420862356771" expanded="true" signature="2923:2964" placeholder="SELECT * FRO..conteudo..." />
-                <marker date="1420862356771" expanded="true" signature="3334:3375" placeholder="SELECT * FRO..conteudo..." />
-                <marker date="1420862356771" expanded="true" signature="3745:3786" placeholder="SELECT * FRO..conteudo..." />
-                <marker date="1420862356771" expanded="true" signature="4265:4312" placeholder="SELECT * FRO..conteudo..." />
+                <marker date="1420862806259" expanded="true" signature="372:413" placeholder="SELECT * FRO..conteudo..." />
+                <marker date="1420862806259" expanded="true" signature="897:938" placeholder="SELECT * FRO..usuarios..." />
+                <marker date="1420862806259" expanded="true" signature="1653:1675" placeholder="SELECT * FRO..conteudo..." />
+                <marker date="1420862806259" expanded="true" signature="2275:2338" placeholder="UPDATE conte..." />
+                <marker date="1420862806259" expanded="true" signature="3035:3076" placeholder="SELECT * FRO..conteudo..." />
+                <marker date="1420862806259" expanded="true" signature="3446:3487" placeholder="SELECT * FRO..conteudo..." />
+                <marker date="1420862806259" expanded="true" signature="3857:3898" placeholder="SELECT * FRO..conteudo..." />
+                <marker date="1420862806259" expanded="true" signature="4377:4424" placeholder="SELECT * FRO..conteudo..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fixture.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/fixture.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.6943973" vertical-offset="566" max-vertical-offset="1155">
+              <caret line="65" column="36" selection-start-line="65" selection-start-column="36" selection-end-line="65" selection-end-column="36" />
+              <folding>
+                <marker date="1415843289901" expanded="true" signature="314:343" placeholder="DROP TABLE I..." />
+                <marker date="1415843289901" expanded="true" signature="361:390" placeholder="DROP TABLE I..." />
+                <marker date="1415843289901" expanded="true" signature="452:692" placeholder="CREATE TABLE..conteudo..." />
+                <marker date="1415843289901" expanded="true" signature="711:927" placeholder="CREATE TABLE..usuarios..." />
+                <marker date="1415843289901" expanded="true" signature="1380:1450" placeholder="INSERT INTO ..." />
+                <marker date="1415843289901" expanded="true" signature="1593:1657" placeholder="INSERT INTO ..." />
               </folding>
             </state>
           </provider>
@@ -283,7 +302,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30504403" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30500397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -326,7 +345,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="135">
           <caret line="2" column="35" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
-          <folding />
+          <folding>
+            <marker date="1420862725775" expanded="true" signature="256:293" placeholder="..." />
+            <marker date="1420862725775" expanded="true" signature="449:854" placeholder="..." />
+            <marker date="1420862725775" expanded="true" signature="476:854" placeholder="..." />
+            <marker date="1420862725775" expanded="true" signature="559:854" placeholder="..." />
+            <marker date="1420862725775" expanded="true" signature="702:854" placeholder="..." />
+            <marker date="1420862725775" expanded="true" signature="1011:1302" placeholder="..." />
+            <marker date="1420862725775" expanded="true" signature="1142:1275" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -345,14 +372,14 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2220">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1420862356771" expanded="true" signature="372:413" placeholder="SELECT * FRO..conteudo..." />
-            <marker date="1420862356771" expanded="true" signature="897:938" placeholder="SELECT * FRO..usuarios..." />
-            <marker date="1420862356771" expanded="true" signature="1653:1675" placeholder="SELECT * FRO..conteudo..." />
-            <marker date="1420862356771" expanded="true" signature="2234:2297" placeholder="UPDATE conte..." />
-            <marker date="1420862356771" expanded="true" signature="2923:2964" placeholder="SELECT * FRO..conteudo..." />
-            <marker date="1420862356771" expanded="true" signature="3334:3375" placeholder="SELECT * FRO..conteudo..." />
-            <marker date="1420862356771" expanded="true" signature="3745:3786" placeholder="SELECT * FRO..conteudo..." />
-            <marker date="1420862356771" expanded="true" signature="4265:4312" placeholder="SELECT * FRO..conteudo..." />
+            <marker date="1420862806259" expanded="true" signature="372:413" placeholder="SELECT * FRO..conteudo..." />
+            <marker date="1420862806259" expanded="true" signature="897:938" placeholder="SELECT * FRO..usuarios..." />
+            <marker date="1420862806259" expanded="true" signature="1653:1675" placeholder="SELECT * FRO..conteudo..." />
+            <marker date="1420862806259" expanded="true" signature="2275:2338" placeholder="UPDATE conte..." />
+            <marker date="1420862806259" expanded="true" signature="3035:3076" placeholder="SELECT * FRO..conteudo..." />
+            <marker date="1420862806259" expanded="true" signature="3446:3487" placeholder="SELECT * FRO..conteudo..." />
+            <marker date="1420862806259" expanded="true" signature="3857:3898" placeholder="SELECT * FRO..conteudo..." />
+            <marker date="1420862806259" expanded="true" signature="4377:4424" placeholder="SELECT * FRO..conteudo..." />
           </folding>
         </state>
       </provider>
@@ -390,14 +417,14 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="735" max-vertical-offset="1635">
           <caret line="54" column="66" selection-start-line="46" selection-start-column="8" selection-end-line="54" selection-end-column="66" />
           <folding>
-            <marker date="1420862356771" expanded="true" signature="372:413" placeholder="SELECT * FRO..conteudo..." />
-            <marker date="1420862356771" expanded="true" signature="897:938" placeholder="SELECT * FRO..usuarios..." />
-            <marker date="1420862356771" expanded="true" signature="1653:1675" placeholder="SELECT * FRO..conteudo..." />
-            <marker date="1420862356771" expanded="true" signature="2234:2297" placeholder="UPDATE conte..." />
-            <marker date="1420862356771" expanded="true" signature="2923:2964" placeholder="SELECT * FRO..conteudo..." />
-            <marker date="1420862356771" expanded="true" signature="3334:3375" placeholder="SELECT * FRO..conteudo..." />
-            <marker date="1420862356771" expanded="true" signature="3745:3786" placeholder="SELECT * FRO..conteudo..." />
-            <marker date="1420862356771" expanded="true" signature="4265:4312" placeholder="SELECT * FRO..conteudo..." />
+            <marker date="1420862806259" expanded="true" signature="372:413" placeholder="SELECT * FRO..conteudo..." />
+            <marker date="1420862806259" expanded="true" signature="897:938" placeholder="SELECT * FRO..usuarios..." />
+            <marker date="1420862806259" expanded="true" signature="1653:1675" placeholder="SELECT * FRO..conteudo..." />
+            <marker date="1420862806259" expanded="true" signature="2275:2338" placeholder="UPDATE conte..." />
+            <marker date="1420862806259" expanded="true" signature="3035:3076" placeholder="SELECT * FRO..conteudo..." />
+            <marker date="1420862806259" expanded="true" signature="3446:3487" placeholder="SELECT * FRO..conteudo..." />
+            <marker date="1420862806259" expanded="true" signature="3857:3898" placeholder="SELECT * FRO..conteudo..." />
+            <marker date="1420862806259" expanded="true" signature="4377:4424" placeholder="SELECT * FRO..conteudo..." />
           </folding>
         </state>
       </provider>
@@ -413,6 +440,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="915">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -462,14 +490,14 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="986" max-vertical-offset="1615">
           <caret line="63" column="43" selection-start-line="63" selection-start-column="43" selection-end-line="63" selection-end-column="43" />
           <folding>
-            <marker date="1420862356771" expanded="true" signature="372:413" placeholder="SELECT * FRO..conteudo..." />
-            <marker date="1420862356771" expanded="true" signature="897:938" placeholder="SELECT * FRO..usuarios..." />
-            <marker date="1420862356771" expanded="true" signature="1653:1675" placeholder="SELECT * FRO..conteudo..." />
-            <marker date="1420862356771" expanded="true" signature="2234:2297" placeholder="UPDATE conte..." />
-            <marker date="1420862356771" expanded="true" signature="2923:2964" placeholder="SELECT * FRO..conteudo..." />
-            <marker date="1420862356771" expanded="true" signature="3334:3375" placeholder="SELECT * FRO..conteudo..." />
-            <marker date="1420862356771" expanded="true" signature="3745:3786" placeholder="SELECT * FRO..conteudo..." />
-            <marker date="1420862356771" expanded="true" signature="4265:4312" placeholder="SELECT * FRO..conteudo..." />
+            <marker date="1420862806259" expanded="true" signature="372:413" placeholder="SELECT * FRO..conteudo..." />
+            <marker date="1420862806259" expanded="true" signature="897:938" placeholder="SELECT * FRO..usuarios..." />
+            <marker date="1420862806259" expanded="true" signature="1653:1675" placeholder="SELECT * FRO..conteudo..." />
+            <marker date="1420862806259" expanded="true" signature="2275:2338" placeholder="UPDATE conte..." />
+            <marker date="1420862806259" expanded="true" signature="3035:3076" placeholder="SELECT * FRO..conteudo..." />
+            <marker date="1420862806259" expanded="true" signature="3446:3487" placeholder="SELECT * FRO..conteudo..." />
+            <marker date="1420862806259" expanded="true" signature="3857:3898" placeholder="SELECT * FRO..conteudo..." />
+            <marker date="1420862806259" expanded="true" signature="4377:4424" placeholder="SELECT * FRO..conteudo..." />
           </folding>
         </state>
       </provider>
@@ -478,6 +506,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="1037">
           <caret line="8" column="83" selection-start-line="8" selection-start-column="83" selection-end-line="8" selection-end-column="83" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -574,13 +603,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fixture.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0073892" vertical-offset="566" max-vertical-offset="1155">
-          <caret line="65" column="36" selection-start-line="65" selection-start-column="36" selection-end-line="65" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/paginas/login.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.48029557" vertical-offset="0" max-vertical-offset="2220">
@@ -606,14 +628,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/paginas/admin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-23.291666" vertical-offset="11" max-vertical-offset="660">
-          <caret line="38" column="6" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Controller.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-30.0" vertical-offset="540" max-vertical-offset="1605">
@@ -624,20 +638,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/paginas/admin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.75" vertical-offset="0" max-vertical-offset="750">
+          <caret line="6" column="62" selection-start-line="6" selection-start-column="62" selection-end-line="6" selection-end-column="62" />
+          <folding>
+            <marker date="1420862725775" expanded="true" signature="256:293" placeholder="..." />
+            <marker date="1420862725775" expanded="true" signature="449:854" placeholder="..." />
+            <marker date="1420862725775" expanded="true" signature="476:854" placeholder="..." />
+            <marker date="1420862725775" expanded="true" signature="559:854" placeholder="..." />
+            <marker date="1420862725775" expanded="true" signature="702:854" placeholder="..." />
+            <marker date="1420862725775" expanded="true" signature="1011:1302" placeholder="..." />
+            <marker date="1420862725775" expanded="true" signature="1142:1275" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Pagina.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.57641196" vertical-offset="1033" max-vertical-offset="2775">
-          <caret line="92" column="36" selection-start-line="92" selection-start-column="36" selection-end-line="92" selection-end-column="36" />
+        <state vertical-scroll-proportion="-10.083333" vertical-offset="838" max-vertical-offset="2790">
+          <caret line="72" column="41" selection-start-line="72" selection-start-column="41" selection-end-line="72" selection-end-column="41" />
           <folding>
-            <marker date="1420862356771" expanded="true" signature="372:413" placeholder="SELECT * FRO..conteudo..." />
-            <marker date="1420862356771" expanded="true" signature="897:938" placeholder="SELECT * FRO..usuarios..." />
-            <marker date="1420862356771" expanded="true" signature="1653:1675" placeholder="SELECT * FRO..conteudo..." />
-            <marker date="1420862356771" expanded="true" signature="2234:2297" placeholder="UPDATE conte..." />
-            <marker date="1420862356771" expanded="true" signature="2923:2964" placeholder="SELECT * FRO..conteudo..." />
-            <marker date="1420862356771" expanded="true" signature="3334:3375" placeholder="SELECT * FRO..conteudo..." />
-            <marker date="1420862356771" expanded="true" signature="3745:3786" placeholder="SELECT * FRO..conteudo..." />
-            <marker date="1420862356771" expanded="true" signature="4265:4312" placeholder="SELECT * FRO..conteudo..." />
+            <marker date="1420862806259" expanded="true" signature="372:413" placeholder="SELECT * FRO..conteudo..." />
+            <marker date="1420862806259" expanded="true" signature="897:938" placeholder="SELECT * FRO..usuarios..." />
+            <marker date="1420862806259" expanded="true" signature="1653:1675" placeholder="SELECT * FRO..conteudo..." />
+            <marker date="1420862806259" expanded="true" signature="2275:2338" placeholder="UPDATE conte..." />
+            <marker date="1420862806259" expanded="true" signature="3035:3076" placeholder="SELECT * FRO..conteudo..." />
+            <marker date="1420862806259" expanded="true" signature="3446:3487" placeholder="SELECT * FRO..conteudo..." />
+            <marker date="1420862806259" expanded="true" signature="3857:3898" placeholder="SELECT * FRO..conteudo..." />
+            <marker date="1420862806259" expanded="true" signature="4377:4424" placeholder="SELECT * FRO..conteudo..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fixture.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6943973" vertical-offset="566" max-vertical-offset="1155">
+          <caret line="65" column="36" selection-start-line="65" selection-start-column="36" selection-end-line="65" selection-end-column="36" />
+          <folding />
         </state>
       </provider>
     </entry>
