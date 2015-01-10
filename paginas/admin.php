@@ -19,7 +19,7 @@
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="descricao">Descrição</label>
                         <div class="col-md-4">
-                            <textarea class="form-control" id="descricao" name="descricao"><?php echo isset($data->description) ? $data->description : ''; ?></textarea>
+                            <textarea class="form-control ckeditor" id="descricao" name="descricao"><?php echo isset($data->description) ? $data->description : ''; ?></textarea>
                         </div>
                     </div>
 

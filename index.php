@@ -156,6 +156,14 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="<?php echo PATH ?>/js/bootstrap.min.js"></script>
 
+    <script src="//cdn.ckeditor.com/4.4.6/standard/ckeditor.js"></script>
+
+    <script>
+        // Replace the <textarea id="editor1"> with a CKEditor
+        // instance, using default configuration.
+        //CKEDITOR.replace('descricao');
+    </script>
+
     <script type="text/javascript">
         $('#botao').click(function(){
             var title = $('#botao').attr('title');
