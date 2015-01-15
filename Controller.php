@@ -30,7 +30,9 @@ class Controller {
             "login"    => "/login",
             "valida-login" => "/valida-login",
             "sair"     => "/sair",
-            "salvar"   => "/salvar"
+            "salvar"   => "/salvar",
+			"atualizacao" => "/atualizacao",
+			"pivo" => "/pivo"
         ];
 
         if(array_key_exists($rota, $rotas))
@@ -91,12 +93,18 @@ class Controller {
             case "sair":
                 $pagina->sair();
                 break;
+			case "pivo":
+				$pagina->pivo();
+                break;
             case "valida-login":
                 $pagina->valida_login($rota);
                 break;
             case "salvar":
                 $pagina->salvar($_POST);
                 break;
+			case "atualizacao":
+				$pagina->atualizacao($_POST['id']);
+				break;
             default:
                 $pagina->home($rota);
                 break;

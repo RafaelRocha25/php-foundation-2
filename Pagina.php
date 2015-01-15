@@ -31,7 +31,8 @@ class Pagina {
     }
 
     public function login($rota) {
-        include "paginas/login.php";
+        unset($_SESSION['logado']);
+		include "paginas/login.php";
     }
 
     public function valida_login($rota) {
@@ -46,7 +47,7 @@ class Pagina {
 
         if(isset($result->user) && (password_verify($_POST['password'], $result->password))){
             $_SESSION['logado'] = TRUE;
-            $this->admin('admin');
+			header('Location: '.PATH.'/admin');
         } else {
             $_SESSION['msg'] = "Login ou senha inválido!";
             $this->login('login');
@@ -55,8 +56,12 @@ class Pagina {
 
     public function sair() {
         unset($_SESSION['logado']);
-        $this->login("login");
+		$this->pivo();
     }
+	
+	public function pivo() {
+		include "paginas/pivo.php";
+	}
 
     public function admin($rota) {
         if(isset($_SESSION['logado'])) {
@@ -71,7 +76,7 @@ class Pagina {
 
 
             unset($_SESSION['mensagem']);
-            $_SESSION["conteudo"] = "Administração!";
+            $_SESSION["conteudo"] = "No menu acima você pode atualizar o conteúdo de todo o site!";
             $_SESSION["data"] = $data;
             include "paginas/admin.php";
         } else {
@@ -101,6 +106,24 @@ class Pagina {
         }
 
     }
+	
+	public function atualizacao($data) {
+	
+		unset($_SESSION['dados']);
+	
+		if(isset($_SESSION['logado'])) {
+							
+			$pdo = $this->getPdo()->conectar();
+			$sql = "SELECT * FROM conteudo WHERE id = :id";
+			$stmt = $pdo->prepare($sql);
+			$stmt->bindValue(":id", $data);
+			$stmt->execute();
+			$_SESSION['dados'] = $stmt->fetch(PDO::FETCH_OBJ);
+			
+			include "paginas/atualizacao.php";
+		}
+		
+	}
 
     public function servicos($rota) {
         $pdo = $this->getPdo()->conectar();

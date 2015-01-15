@@ -20,6 +20,14 @@ body {
 	color: #ffffff !important;
 }
 
+h3 {
+	color: #ffffff;
+}
+
+#admin {
+	margin-left: 10px;
+}
+
 @media(min-width:768px) {
     body {
         padding-top: 100px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */

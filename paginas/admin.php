@@ -1,6 +1,5 @@
-<h1>Admin</h1>
-<?php echo $_SESSION["conteudo"]; ?> |
-<a href="<?php echo PATH . "/sair"; ?>">sair</a>
+<h1>Administração</h1>
+<?php echo $_SESSION["conteudo"]; ?>
 
 <?php
     if(isset($_SESSION['mensagem'])) {
@@ -8,9 +7,10 @@
     }
 ?>
 
+<!--
 <ul>
     <?php
-        foreach($_SESSION['data'] as $data) {
+        /*foreach($_SESSION['data'] as $data) {
             echo '<li>' . $data->link . '</li>';
             ?>
             <form class="form-horizontal" method="POST" action="salvar">
@@ -36,10 +36,10 @@
                 </fieldset>
             </form>
         <?php
-        }
+        }*/
     ?>
 </ul>
-
+-->
 
 <br />
 <br />

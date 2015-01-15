@@ -11,7 +11,7 @@
 
     include "Controller.php";
     $controller = new Controller();
-    $checaSeRotaEstaMapeada  = $controller->checaRota($route['path']);
+	$checaSeRotaEstaMapeada  = $controller->checaRota($route['path']);
     $itens = $controller->geraItensDeMenu();
 
 ?>
@@ -58,35 +58,59 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">
-                    <img src="http://placehold.it/150x50&text=Logo" alt="">
-                </a>
+                
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
+                <ul class="nav nav-pills">
 
                     <?php
-                        foreach($itens as $item) {
-                            echo "
-                                <li>
-                                    <a href='".PATH."/".$item->link."'>".$item->link."</a>
-                                </li>
-                            ";
-                        }
-                    ?>
-
-                    <li>
-                        <a href="<?php echo PATH ?>/contato">Contato</a>
-                    </li>
-                    <?php if(!isset($_SESSION['logado'])) : ?>
-                        <li>
+                        if(!isset($_SESSION['logado'])) {
+							foreach($itens as $item) {
+								echo "
+									<li>
+										<a href='".PATH."/".$item->link."'>".$item->link."</a>
+									</li>
+								";
+							}
+						?>
+						<li>
                             <a href="<?php echo PATH ?>/login">Login</a>
-                        </li>
+						</li>
+						<li>
+							<a href="<?php echo PATH ?>/contato">Contato</a>
+						</li>
+						<li>
+							<a href="<?php echo PATH ?>/admin">Admin</a>
+						</li>
+					<?php
+						} 
+                    ?>
+                    <?php if(isset($_SESSION['logado'])) : ?>
+                        <li><a href="#">ADMINISTRAÇÃO</a></li>
+						<li role="presentation" class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+							  Itens de menu <span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu" role="menu">
+							  <?php
+								foreach($_SESSION['data'] as $data) {
+									?>
+										<li>
+											<form method="POST" action="atualizacao">
+												<input type="hidden"  name="id" value="<?php echo $data->id; ?>">
+												<input class="btn btn-default" type="submit" value="<?php echo $data->link ?>" />
+											</form>
+										</li>
+									<?php
+								}
+							  ?>
+							</ul>
+						</li>
+						<li>
+							<a href="<?php echo PATH ?>/sair">Logout</a>
+						</li>
                     <?php endif; ?>
-                    <li>
-                        <a href="<?php echo PATH ?>/admin">Admin</a>
-                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -110,6 +134,7 @@
                             <div class="col-md-4">
                                 <button id="singlebutton" class="btn btn-primary">Buscar</button>
                             </div>
+							
                         </div>
 
                     </fieldset>
