@@ -94,15 +94,17 @@
 							</a>
 							<ul class="dropdown-menu" role="menu">
 							  <?php
-								foreach($_SESSION['data'] as $data) {
-									?>
-										<li>
-											<form method="POST" action="atualizacao">
-												<input type="hidden"  name="id" value="<?php echo $data->id; ?>">
-												<input class="btn btn-default" type="submit" value="<?php echo $data->link ?>" />
-											</form>
-										</li>
-									<?php
+								if(isset($_SESSION['data'])) {
+									foreach($_SESSION['data'] as $data) {
+										?>
+											<li>
+												<form method="POST" action="atualizacao">
+													<input type="hidden"  name="id" value="<?php echo $data->id; ?>">
+													<input class="btn btn-default" type="submit" value="<?php echo $data->link ?>" />
+												</form>
+											</li>
+										<?php
+									}
 								}
 							  ?>
 							</ul>
